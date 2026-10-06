@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
+
+  /* Surfaces: deep green-black, stepped */
+  --color-ground: #0d1411;
+  --color-panel: #141e1a;
+  --color-raised: #1a2621;
+  --color-line: #263530;
+  --color-line-strong: #34463f;
+
+  /* Ink */
+  --color-ink: #e8efeb;
+  --color-ink-2: #a9b8b1;
+  --color-ink-3: #77897f;
+
+  /* Accents */
+  --color-leaf: #3dbe7a;
+  --color-leaf-dim: #1f5c3d;
+  --color-xai: #2bb3b1;
+  --color-xai-dim: #154f4e;
+  --color-amber: #e3a33b;
+  --color-amber-dim: #4a3815;
+  --color-alert: #e36464;
+
+  /* Class identity (validated: dark surface, all-pairs CVD >= 8) */
+  --color-cls-als: #4f8fdb;
+  --color-cls-rust: #d65a34;
+  --color-cls-healthy: #2e9f7a;
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    background: var(--color-ground);
+  }
+
+  body {
+    background: var(--color-ground);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-feature-settings: "tnum" 0;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-leaf);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background: var(--color-leaf-dim);
+    color: var(--color-ink);
+  }
+}
+
+@utility num {
+  font-variant-numeric: tabular-nums;
+}
+
+@utility panel {
+  background: var(--color-panel);
+  border: 1px solid var(--color-line);
+  border-radius: 14px;
+}
+
+/* One orchestrated entrance: the page body rises in once on route change */
+@keyframes page-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+.page-enter {
+  animation: page-in 320ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@keyframes scan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+.scan-line {
+  animation: scan 1.6s ease-in-out infinite alternate;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-enter, .scan-line {
+    animation: none;
+  }
+
+  * {
+    transition-duration: 0ms !important;
+  }
+}
+
+/* Recharts: keep focus outlines off SVG surfaces (keyboard focus is on controls) */
+.recharts-wrapper svg:focus,
+.recharts-surface:focus {
+  outline: none;
+}

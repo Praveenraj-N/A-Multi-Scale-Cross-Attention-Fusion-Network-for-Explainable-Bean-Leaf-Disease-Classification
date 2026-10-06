@@ -1,0 +1,56 @@
+
+MSCAF-Net FINAL BACKUP
+======================
+
+Backup created:
+2026-10-03 07:24:51
+
+Model:
+MSCAF-Net - Multi-Scale Cross-Attention Fusion Network
+
+Full model configuration:
+- PVT v2 backbone
+- GCADSN CNN branch
+- Scales: 28, 14, 7
+- Feature dimension: 128
+- Attention heads: 4
+- Cross-attention: enabled
+- Fusion: adaptive
+- Dropout: 0.1
+
+Final Full Model Results:
+- Accuracy: 99.22%
+- Precision: 99.24%
+- Recall: 99.22%
+- F1 Score: 99.22%
+- Correct: 127/128
+- Incorrect: 1/128
+
+Misclassified sample:
+- File: healthy_test.35.jpg
+- True class: healthy
+- Predicted class: bean_rust
+- Confidence: 96.35%
+
+Ablation Results:
+- Base Fusion: 97.66%
+- MSCAF-A: 96.88%
+- MSCAF-B: 97.66%
+- MSCAF-C: 96.88%
+- MSCAF-Full: 99.22%
+
+Explainable AI:
+- Grad-CAM implemented
+- 3-class Grad-CAM generated
+- Misclassified-image Grad-CAM generated
+- Single-image Grad-CAM generated
+
+Important:
+The current implemented Full MSCAF-Net uses feature scales:
+28x28, 14x14, and 7x7.
+
+The original 128-image test set is NOT included in this backup unless
+it was copied into the project directory.
+
+This backup contains the trained model, source code,
+experimental results, and explainability outputs.

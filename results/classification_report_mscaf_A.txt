@@ -1,0 +1,9 @@
+                   precision    recall  f1-score   support
+
+angular_leaf_spot     0.9545    0.9767    0.9655        43
+        bean_rust     0.9535    0.9535    0.9535        43
+          healthy     1.0000    0.9762    0.9880        42
+
+         accuracy                         0.9688       128
+        macro avg     0.9693    0.9688    0.9690       128
+     weighted avg     0.9691    0.9688    0.9688       128

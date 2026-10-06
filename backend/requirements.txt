@@ -1,0 +1,15 @@
+# Install PyTorch first with the build matching your hardware, e.g. CUDA 12.8:
+#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cu128
+# (or the CPU build: --index-url https://download.pytorch.org/whl/cpu)
+torch>=2.0
+torchvision
+timm>=1.0
+numpy
+Pillow
+opencv-python
+# explainability/run_gradcam.py (reused for the overlay helpers) imports it
+matplotlib
+fastapi
+uvicorn[standard]
+python-multipart
+pydantic>=2

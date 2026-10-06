@@ -1,0 +1,44 @@
+{
+  "mode": "mscaf",
+  "checkpoint": "checkpoints/baseline_mscaf_A_best.pth",
+  "checkpoint_epoch": 17,
+  "model_config": {
+    "mode": "mscaf",
+    "mscaf_kwargs": {
+      "scales": [
+        7
+      ],
+      "dim": 128,
+      "num_heads": 4,
+      "use_cross_attention": false,
+      "fusion": "concat",
+      "dropout": 0.1
+    }
+  },
+  "accuracy": 0.96875,
+  "precision": 0.9691051136363636,
+  "recall": 0.96875,
+  "f1": 0.96883763502285,
+  "confusion_matrix": [
+    [
+      42,
+      1,
+      0
+    ],
+    [
+      2,
+      41,
+      0
+    ],
+    [
+      0,
+      1,
+      41
+    ]
+  ],
+  "class_names": [
+    "angular_leaf_spot",
+    "bean_rust",
+    "healthy"
+  ]
+}

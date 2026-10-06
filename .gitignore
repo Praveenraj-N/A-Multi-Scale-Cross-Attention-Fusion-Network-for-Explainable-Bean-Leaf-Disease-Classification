@@ -1,0 +1,16 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Node / build output
+frontend/node_modules/
+frontend/dist/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Model checkpoints (100-300 MB each; exceed GitHub's 100 MB file limit)
+checkpoints/*.pth
