@@ -5,6 +5,7 @@ import {
   ChartColumn,
   Database,
   LayoutDashboard,
+  MapPinned,
   Menu,
   Network,
   ScanEye,
@@ -19,6 +20,7 @@ import { USE_MOCK } from "../services/api";
 export const NAV_ITEMS = [
   { to: "/", label: "Dashboard", icon: LayoutDashboard, end: true },
   { to: "/predict", label: "Disease Prediction", icon: ScanLine },
+  { to: "/outbreak", label: "Outbreak Monitoring", icon: MapPinned },
   { to: "/explainability", label: "Explainable AI", icon: ScanEye },
   { to: "/architecture", label: "Model Architecture", icon: Network },
   { to: "/results", label: "Research Results", icon: ChartColumn },

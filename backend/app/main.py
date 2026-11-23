@@ -13,6 +13,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from backend.app import config  # sets up sys.path for the research packages
 from backend.app.routers import info, predict
+from backend.app.routers.outbreak import build_outbreak_service, register_outbreak
 from backend.app.services.gradcam_service import GradCAMService
 from backend.app.services.model_service import ModelService
 
@@ -37,6 +38,13 @@ async def lifespan(app: FastAPI):
     app.state.gradcam_service = GradCAMService(model_service.model)
     logger.info("Grad-CAM ready")
 
+    # Outbreak monitoring is optional: a failure here must never stop classification
+    try:
+        app.state.outbreak = build_outbreak_service()
+        logger.info("Outbreak monitoring ready (db: %s)", app.state.outbreak.settings.db_path)
+    except Exception:
+        logger.exception("Outbreak monitoring failed to start; /api outbreak endpoints will return 503")
+
     yield
 
 
@@ -56,3 +64,4 @@ app.add_middleware(
 
 app.include_router(info.router)
 app.include_router(predict.router)
+register_outbreak(app)

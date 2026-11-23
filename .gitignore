@@ -14,3 +14,6 @@ frontend/dist/
 
 # Model checkpoints (100-300 MB each; exceed GitHub's 100 MB file limit)
 checkpoints/*.pth
+
+# Outbreak monitoring local database
+backend/data/

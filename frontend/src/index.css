@@ -112,3 +112,45 @@
 .recharts-surface:focus {
   outline: none;
 }
+
+/* ---- Outbreak map (Leaflet) ---- */
+.outbreak-map {
+  background: var(--color-ground);
+  z-index: 0;
+}
+
+.outbreak-marker {
+  background: transparent;
+  border: 0;
+}
+
+.outbreak-map .leaflet-popup-content-wrapper,
+.outbreak-map .leaflet-popup-tip {
+  background: var(--color-panel);
+  color: var(--color-ink);
+  border: 1px solid var(--color-line-strong);
+}
+
+.outbreak-map .leaflet-popup-content {
+  margin: 12px 14px;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.outbreak-map .op dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2px 12px;
+  margin: 6px 0 0;
+}
+
+.outbreak-map .op dt { color: var(--color-ink-3); }
+.outbreak-map .op dd { margin: 0; color: var(--color-ink); overflow-wrap: anywhere; }
+.outbreak-map .op-note { margin: 8px 0 0; color: var(--color-ink-2); font-size: 12px; }
+
+.outbreak-map .leaflet-control-attribution {
+  background: rgba(13, 20, 17, 0.8);
+  color: var(--color-ink-3);
+}
+
+.outbreak-map .leaflet-control-attribution a { color: var(--color-ink-2); }

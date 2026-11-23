@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router";
-import { ArrowRight, Clock, Cpu, LoaderCircle, RotateCcw, ScanLine } from "lucide-react";
+import { ArrowRight, Clock, Cpu, LoaderCircle, MapPinned, RotateCcw, ScanLine } from "lucide-react";
 import ImageDropzone from "../components/ImageDropzone";
 import CompareSlider from "../components/CompareSlider";
 import ProbabilityBars from "../components/charts/ProbabilityBars";
@@ -101,6 +101,19 @@ function ResultView({ analysis }) {
             <h3 className="mb-3 text-[15px] font-semibold text-ink">Class probabilities</h3>
             <ProbabilityBars probabilities={result.class_probabilities} predicted={result.predicted_class} />
           </div>
+
+          {!result.isMock && (
+            <div className="mt-5 border-t border-line pt-5">
+              <Link
+                to="/outbreak"
+                state={{ prefill: { disease: result.predicted_class, confidence: result.confidence } }}
+                className="inline-flex items-center gap-2 text-sm font-medium text-xai hover:underline"
+              >
+                <MapPinned className="size-4" aria-hidden /> Report this detection to Outbreak Monitoring
+              </Link>
+              <p className="mt-1 text-xs text-ink-3">Opens a form pre-filled with this prediction. You add the location; it is saved as an unverified model detection.</p>
+            </div>
+          )}
         </Panel>
       </div>
 

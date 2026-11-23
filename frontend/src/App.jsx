@@ -10,6 +10,7 @@ const Architecture = lazy(() => import("./pages/Architecture"));
 const Results = lazy(() => import("./pages/Results"));
 const FailureAnalysis = lazy(() => import("./pages/FailureAnalysis"));
 const Dataset = lazy(() => import("./pages/Dataset"));
+const OutbreakMonitoring = lazy(() => import("./pages/OutbreakMonitoring"));
 const About = lazy(() => import("./pages/About"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -32,6 +33,7 @@ export default function App() {
         <Route path="results" element={page(Results)} />
         <Route path="failure-analysis" element={page(FailureAnalysis)} />
         <Route path="dataset" element={page(Dataset)} />
+        <Route path="outbreak" element={page(OutbreakMonitoring)} />
         <Route path="about" element={page(About)} />
         <Route path="*" element={page(NotFound)} />
       </Route>

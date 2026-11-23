@@ -1,0 +1,4 @@
+-r requirements.txt
+# Needed only to run the backend tests (backend/tests)
+pytest
+httpx

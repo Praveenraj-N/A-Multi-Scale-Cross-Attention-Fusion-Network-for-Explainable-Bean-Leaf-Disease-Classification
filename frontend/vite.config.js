@@ -9,5 +9,11 @@ export default defineConfig({
     host: "localhost",
     port: 5173,
     strictPort: true
+  },
+  test: {
+    environment: "jsdom",
+    setupFiles: ["./src/test/setup.js"],
+    css: false,
+    testTimeout: 20000
   }
 });
